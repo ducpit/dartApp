@@ -16,16 +16,16 @@
     height: 100%;
     width: 100%;
   }
-  
   .sidenav-content {
     display: flex;
     height: 100%;
-    align-items: center;
     justify-content: center;
   }
-  
   .sidenav {
     padding: 20px;
   }
- 
+  .sidenav-text {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
  
