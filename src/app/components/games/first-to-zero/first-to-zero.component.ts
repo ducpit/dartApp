@@ -10,31 +10,7 @@ import { Game } from 'src/app/helpers/game';
 })
 export class FirstToZeroComponent implements OnInit {
 
-  players?: Player[] = [
-    /* {
-      name: "Timo",
-      team: 1,
-      score: 123,
-      status: false,
-      throws: [ 
-        {throw: 12},
-        {throw: 14} 
-      ],
-    }  */
-  ];
-  
-  /* game?: Game = {
-    activePlayer: 0,
-    gameState: 0,
-    inCondition: 1,
-    outCondition: 1,
-    finish: "string",
-    number: 1,
-    type: "string",
-    difference: 1,
-  };
- */
-
+  players: Player[] = [];
   game:Game = <Game>{};
 
   ruleForm: FormGroup;

@@ -15,8 +15,8 @@ mat-button-toggle-group {
     width: 100%;
 }
 .rule-section{
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 .playerCard{
     margin-top: 20px;
@@ -29,4 +29,8 @@ mat-button-toggle-group {
 }
 .playerBoard{
     width: 100%;
-}   
+}
+.keyboard{
+    position: fixed;
+    z-index: 2000;
+}
