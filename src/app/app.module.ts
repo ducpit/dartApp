@@ -17,12 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
-
-
-
-
-
-
+import {MatCardModule} from '@angular/material/card';
 
 // own Components
 import { AppComponent } from './app.component';
@@ -47,6 +42,7 @@ import { FirstToZeroComponent } from './components/games/first-to-zero/first-to-
     MatFormFieldModule,
     MatSelectModule,
     MatDividerModule,
+    MatCardModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

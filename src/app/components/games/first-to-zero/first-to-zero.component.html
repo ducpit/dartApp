@@ -105,3 +105,13 @@
         <button mat-raised-button color="accent" (click)="startGame()">Game Start</button>
     </form>
 </div>
+<div *ngIf="settingsFinished">
+    <mat-card [ngClass]="{'active': player.status}" *ngFor="let player of players">
+        <mat-card-title>{{player.score}}</mat-card-title>
+        <mat-card-subtitle>{{player.name}}</mat-card-subtitle>
+        <mat-card-content>Last Throw: {{player.throws[player.throws.length-1].throw}}</mat-card-content>
+    </mat-card>
+    <button mat-icon-button (click)="roundFinished()">
+        <mat-icon>done</mat-icon>
+    </button>
+</div>

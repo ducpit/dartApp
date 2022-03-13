@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup ,FormArray, FormControl } from '@angular/forms';
+import { Player } from 'src/app/helpers/player';
+import { Game } from 'src/app/helpers/game';
 
 @Component({
   selector: 'app-first-to-zero',
@@ -7,6 +9,34 @@ import { FormGroup ,FormArray, FormControl } from '@angular/forms';
   styleUrls: ['./first-to-zero.component.scss']
 })
 export class FirstToZeroComponent implements OnInit {
+
+  players?: Player[] = [
+    /* {
+      name: "Timo",
+      team: 1,
+      score: 123,
+      status: false,
+      throws: [ 
+        {throw: 12},
+        {throw: 14} 
+      ],
+    }  */
+  ];
+  
+  /* game?: Game = {
+    activePlayer: 0,
+    gameState: 0,
+    inCondition: 1,
+    outCondition: 1,
+    finish: "string",
+    number: 1,
+    type: "string",
+    difference: 1,
+  };
+ */
+
+  game:Game = <Game>{};
+
   ruleForm: FormGroup;
   playersArray: FormArray;
   //
@@ -44,7 +74,6 @@ export class FirstToZeroComponent implements OnInit {
     }
     else{
       this.showCustomScore = false;
-      this.ruleForm.patchValue({startScore: val})
     }
   }
   private createPlayerControl(count: number): FormGroup{
@@ -61,9 +90,62 @@ export class FirstToZeroComponent implements OnInit {
     this.playersArray.removeAt(i);
     return false;
   }
-  startGame(){
-    this.settingsFinished = true;
-    console.log(this.ruleForm.value)
+  createPlayerObjects(player:any){
+    if (this.ruleForm.value.startScore == "custom")
+    {
+      this.ruleForm.patchValue({startScore: this.ruleForm.value.customScore})
+    }
+    let newPlayer: Player = {
+      name: player.name,
+      team: player.team,
+      score: this.ruleForm.value.startScore,
+      status: false,
+      throws: [ 
+        {throw: 0},
+       ],
+   };
+    this.players?.push(newPlayer);
   }
 
+  setPlayerAktiv(i: number){
+    if(typeof this.players != "undefined"){
+      this.players[i].status = true;
+    }
+  }
+  setPlayerInactive(i: number){
+    if(typeof this.players != "undefined"){
+      this.players[i].status = false;
+    }
+  }
+
+  startGame(){
+    // Create Player Objects
+    this.settingsFinished = true;
+    for (let i = 0; i < this.playersArray.length; i++) {
+      this.createPlayerObjects(this.playersArray.value[i])
+    }
+    // Init Game Object
+    this.game.activePlayer = 0;
+    this.game.gameState =  0;
+    this.game.inCondition = this.ruleForm.value.inCondition;
+    this.game.outCondition = this.ruleForm.value.outCondition;
+    this.game.finish = this.ruleForm.value.finish;
+    this.game.number = this.ruleForm.value.number;
+    this.game.type = this.ruleForm.value.type;
+    this.game.difference = this.ruleForm.value.difference;
+    this.setPlayerAktiv(0);
+  }
+  roundFinished(){
+    this.setPlayerInactive(this.game.activePlayer)
+    if(typeof this.players != "undefined"){
+      if ( this.game.activePlayer < this.players.length-1){
+        this.game.activePlayer += 1;
+      }
+      else{
+        this.game.activePlayer = 0; 
+      }
+    }
+    
+    this.setPlayerAktiv(this.game.activePlayer)
+  }
 }
