@@ -135,9 +135,14 @@ export class FirstToZeroComponent implements OnInit {
     this.game.difference = this.ruleForm.value.difference;
     this.setPlayerAktiv(0);
   }
-  roundFinished(){
+  roundFinished(number: number){
     this.setPlayerInactive(this.game.activePlayer)
     if(typeof this.players != "undefined"){
+      console.log(this.players[this.game.activePlayer].name)
+      console.log(this.players[this.game.activePlayer].score)
+      this.players[this.game.activePlayer].score = this.players[this.game.activePlayer].score - number;
+      console.log(this.players[this.game.activePlayer].score)
+
       if ( this.game.activePlayer < this.players.length-1){
         this.game.activePlayer += 1;
       }

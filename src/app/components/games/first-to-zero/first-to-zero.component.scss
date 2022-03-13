@@ -19,8 +19,14 @@ mat-button-toggle-group {
     margin-bottom: 5%;
 }
 .playerCard{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0;
     width: 100%;
 }
 .active{
     background: lightgreen;
 }
+.playerBoard{
+    width: 100%;
+}   

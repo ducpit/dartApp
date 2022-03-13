@@ -1,0 +1,63 @@
+<div>{{ amount }}</div>
+<mat-grid-list class="d-flex align-items-end" cols="3">
+    <mat-grid-tile>
+        <button mat-raised-button (click)="buttonClicked(1)">
+            1
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="buttonClicked(2)">
+            2
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="buttonClicked(3)">
+            3
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="buttonClicked(4)">
+            4
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="buttonClicked(5)">
+            5
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="buttonClicked(6)">
+            6
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="buttonClicked(7)">
+            7
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="buttonClicked(8)">
+            8
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="buttonClicked(9)">
+            9
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-icon-button (click)="del()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="buttonClicked(0)">
+            0
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-icon-button (click)="done()">
+            <mat-icon>done</mat-icon>
+        </button>
+    </mat-grid-tile>
+</mat-grid-list>

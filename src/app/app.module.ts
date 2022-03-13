@@ -18,11 +18,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 // own Components
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FirstToZeroComponent } from './components/games/first-to-zero/first-to-zero.component';
+import { KeyboardComponent } from './components/keyboard/keyboard.component';
 
 
 @NgModule({
@@ -30,6 +33,7 @@ import { FirstToZeroComponent } from './components/games/first-to-zero/first-to-
     AppComponent,
     FirstToZeroComponent,
     DashboardComponent,
+    KeyboardComponent,
   ],
   imports: [
     MatToolbarModule,
@@ -43,6 +47,7 @@ import { FirstToZeroComponent } from './components/games/first-to-zero/first-to-
     MatSelectModule,
     MatDividerModule,
     MatCardModule,
+    MatGridListModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
