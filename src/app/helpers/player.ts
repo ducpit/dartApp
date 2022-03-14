@@ -3,5 +3,6 @@ export interface Player {
     team: number,
     score: number,
     status: boolean,
+    inStat: boolean;
     throws: Array<{throw: number}>
 }

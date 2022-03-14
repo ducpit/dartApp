@@ -1,0 +1,93 @@
+<form [formGroup]="ruleForm" (ngSubmit)="startGame(ruleForm.value)">
+    <div class="rule-section">
+        <div class="section-header">Start Score</div>
+        <mat-button-toggle-group #group="matButtonToggleGroup" formControlName = "startScore" (change)="onChangeScore(group.value)">
+            <mat-button-toggle value="301">301</mat-button-toggle>
+            <mat-button-toggle value="501">501</mat-button-toggle>
+            <mat-button-toggle value="701">701</mat-button-toggle>
+            <mat-button-toggle value="custom">Custom</mat-button-toggle>
+        </mat-button-toggle-group>
+        <div *ngIf="showCustomScore">
+            <mat-form-field class="text-input" appearance="fill">
+                <mat-label>Coustom Score</mat-label>
+                <input type="number" formControlName="customScore" matInput>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="rule-section">
+        <div class="section-header">In Condition</div>
+        <mat-button-toggle-group formControlName="inCondition">
+            <mat-button-toggle value="1">
+                <span>single</span>
+            </mat-button-toggle>
+            <mat-button-toggle value="2">
+                <span>double</span>
+            </mat-button-toggle>
+            <mat-button-toggle value="3">
+                <span>tripple</span>
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div class="rule-section">
+        <div class="section-header">Out Condition</div>
+        <mat-button-toggle-group formControlName="outCondition">
+            <mat-button-toggle value="1">
+                <span>single</span>
+            </mat-button-toggle>
+            <mat-button-toggle value="2">
+                <span>double</span>
+            </mat-button-toggle>
+            <mat-button-toggle value="3">
+                <span>tripple</span>
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div class="rule-section">
+        <div class="section-header">Game Mode</div>
+        <div>
+            <mat-button-toggle-group  formControlName="finish">
+                <mat-button-toggle value="bestOf">Best of</mat-button-toggle>
+                <mat-button-toggle value="firstTo">First to</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+        <div>
+            <mat-form-field class="text-input" appearance="fill">
+                <mat-label>amount</mat-label>
+                <input type="number" formControlName="amount" matInput>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-button-toggle-group formControlName="type">
+                <mat-button-toggle value="legs">Legs</mat-button-toggle>
+                <mat-button-toggle value="sets">Sets</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </div>
+    <div class="rule-section">
+        <div class="section-header">
+            Players
+            <button mat-icon-button class="add-button" type="button" color="primary" (click)="addPlayer(playersArray.length)">
+                <mat-icon>add</mat-icon>
+            </button>
+    </div>
+        <div formArrayName="players">
+            <div *ngFor="let player of playersArray.controls; let i = index">
+                <div formGroupName="{{i}}">
+                    <mat-form-field class="text-input" appearance="fill">
+                        <mat-label>Player Name</mat-label>
+                        <input matInput class="form-control" formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field class="text-input" appearance="fill">
+                        <mat-label>Team</mat-label>
+                        <input matInput class="form-control" formControlName="team">
+                    </mat-form-field>
+                    <mat-checkbox formControlName="bot">Bot</mat-checkbox>
+                    <button mat-icon-button type="button" (click)="removePlayer(i)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button mat-raised-button type="submit" [disabled]="!ruleForm.valid" color="accent">Game Start</button>
+</form>

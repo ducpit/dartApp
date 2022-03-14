@@ -1,47 +1,61 @@
-<div>{{ amount }}</div>
-<mat-grid-list class="d-flex align-items-end" cols="3">
+<mat-grid-list class="keyboard" cols="3">
+    <mat-grid-tile class="keyboard-undo">
+        <button mat-icon-button class="keyboard-undo" (click)="buttonClicked('undo')">
+            <mat-icon>
+                undo
+            </mat-icon>
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile class="keyboard-display">
+        {{amount}}
+    </mat-grid-tile>
+    <mat-grid-tile class="keyboard-alt">
+        <button mat-raised-button (click)="buttonClicked('alt')">
+            alt
+        </button>
+    </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button (click)="buttonClicked(1)">
+        <button mat-raised-button (click)="buttonClicked('1')">
             1
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button (click)="buttonClicked(2)">
+        <button mat-raised-button (click)="buttonClicked('2')">
             2
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button (click)="buttonClicked(3)">
+        <button mat-raised-button (click)="buttonClicked('3')">
             3
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button (click)="buttonClicked(4)">
+        <button mat-raised-button (click)="buttonClicked('4')">
             4
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button (click)="buttonClicked(5)">
+        <button mat-raised-button (click)="buttonClicked('5')">
             5
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button (click)="buttonClicked(6)">
+        <button mat-raised-button (click)="buttonClicked('6')">
             6
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button (click)="buttonClicked(7)">
+        <button mat-raised-button (click)="buttonClicked('7')">
             7
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button (click)="buttonClicked(8)">
+        <button mat-raised-button (click)="buttonClicked('8')">
             8
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button (click)="buttonClicked(9)">
+        <button mat-raised-button (click)="buttonClicked('9')">
             9
         </button>
     </mat-grid-tile>
@@ -51,7 +65,7 @@
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button (click)="buttonClicked(0)">
+        <button mat-raised-button (click)="buttonClicked('0')">
             0
         </button>
     </mat-grid-tile>

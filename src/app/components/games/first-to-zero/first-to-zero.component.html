@@ -1,116 +1,13 @@
 <div *ngIf="!settingsFinished">
-    <form novalidate [formGroup]="ruleForm">
-        <div class="rule-section">
-            <h2>Start Score</h2>
-            <mat-button-toggle-group #group="matButtonToggleGroup" formControlName = "startScore" (change)="onChangeScore(group.value)">
-                <mat-button-toggle value="301">
-                    <span>301</span>
-                </mat-button-toggle>
-                <mat-button-toggle value="501">
-                    <span>501</span>
-                </mat-button-toggle>
-                <mat-button-toggle value="701">
-                    <span>701</span>
-                </mat-button-toggle>
-                <mat-button-toggle value="custom">
-                    <span>Custom</span>
-                </mat-button-toggle>
-            </mat-button-toggle-group>
-            <div *ngIf="showCustomScore">
-                <mat-form-field class="text-input" appearance="fill">
-                    <mat-label>Coustom Score</mat-label>
-                    <input type="number" formControlName="customScore" matInput>
-                </mat-form-field>
-            </div>
-        </div>
-        <mat-divider></mat-divider>
-        <div class="rule-section">
-            <h2>In Condition</h2>
-            <mat-button-toggle-group formControlName="inCondition">
-                <mat-button-toggle value="1">
-                    <span>single</span>
-                </mat-button-toggle>
-                <mat-button-toggle value="2">
-                    <span>double</span>
-                </mat-button-toggle>
-                <mat-button-toggle value="3">
-                    <span>tripple</span>
-                </mat-button-toggle>
-            </mat-button-toggle-group>
-        </div>
-        <mat-divider></mat-divider>
-        <div class="rule-section">
-            <h2>Out Condition</h2>
-            <mat-button-toggle-group formControlName="outCondition">
-                <mat-button-toggle value="1">
-                    <span>single</span>
-                </mat-button-toggle>
-                <mat-button-toggle value="2">
-                    <span>double</span>
-                </mat-button-toggle>
-                <mat-button-toggle value="3">
-                    <span>tripple</span>
-                </mat-button-toggle>
-            </mat-button-toggle-group>
-        </div>
-        <mat-divider></mat-divider>
-        <div class="rule-section">
-            <h2>Game Mode</h2>
-            <div>
-                <mat-button-toggle-group  formControlName="finish">
-                    <mat-button-toggle value="bestOf"> Best of</mat-button-toggle>
-                    <mat-button-toggle value="firstTo">First to</mat-button-toggle>
-                </mat-button-toggle-group>
-            </div>
-            <div>
-                <mat-form-field class="text-input" appearance="fill">
-                    <mat-label>number</mat-label>
-                    <input type="number" formControlName="number" matInput>
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-button-toggle-group formControlName="type">
-                    <mat-button-toggle value="legs"> Legs</mat-button-toggle>
-                    <mat-button-toggle value="sets">Sets</mat-button-toggle>
-                </mat-button-toggle-group>
-            </div>
-        </div>
-        <mat-divider></mat-divider>
-        <div class="rule-section">
-            <h2>Players</h2>
-            <div formArrayName="players">
-                <div *ngFor="let player of playersArray.controls; let i = index">
-                    <div formGroupName="{{i}}">
-                        <mat-form-field class="text-input" appearance="fill">
-                            <mat-label>Player Name</mat-label>
-                            <input matInput class="form-control" formControlName="name">
-                        </mat-form-field>
-                        <mat-form-field class="text-input" appearance="fill">
-                            <mat-label>Team</mat-label>
-                            <input matInput class="form-control" formControlName="team">
-                        </mat-form-field>
-                        <mat-checkbox formControlName="bot">Bot</mat-checkbox>
-                        <button mat-icon-button (click)="removePlayer(i)">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <button mat-mini-fab color="primary" (click)="addPlayer(playersArray.length)">
-                    <mat-icon>add</mat-icon>
-                </button>
-            </div>
-        </div>
-        <button mat-raised-button color="accent" (click)="startGame()">Game Start</button>
-    </form>
+    <app-rule-form (startGameEvent)="startGame($event)"></app-rule-form>
 </div>
-
-<mat-card [ngClass]="{'active': player.status}" *ngFor="let player of players">
-    <mat-card-title>{{player.score}}</mat-card-title>
-    <mat-card-subtitle>{{player.name}}</mat-card-subtitle>
-    <mat-card-content>Last Throw: {{player.throws[player.throws.length-1].throw}}</mat-card-content>
-</mat-card>
-<div *ngIf="settingsFinished" >
-    <app-keyboard (doneEvent)="roundFinished($event)"></app-keyboard>
+<div class="container">
+    <mat-card [ngClass]="{'active': player.status}" *ngFor="let player of players">
+        <mat-card-title>{{player.score}}</mat-card-title>
+        <mat-card-subtitle>{{player.name}}</mat-card-subtitle>
+        <mat-card-content>Last Throw: {{player.throws[player.throws.length-1].throw}}</mat-card-content>
+    </mat-card>
+    <div *ngIf="settingsFinished" class="playerBoard">
+        <app-keyboard (doneEvent)="roundFinished($event)"></app-keyboard>
+    </div>
 </div>

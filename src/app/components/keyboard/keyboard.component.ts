@@ -11,13 +11,13 @@ export class KeyboardComponent implements OnInit {
 
   constructor() { }
 
-  @Output() doneEvent = new EventEmitter<number>();
+  @Output() doneEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
   }
 
-  buttonClicked(value: number){
-    this.amount = this.amount + value.toString();
+  buttonClicked(value: string){
+    this.amount = this.amount + value;
   }
 
   del(){
@@ -27,7 +27,7 @@ export class KeyboardComponent implements OnInit {
   }
   done(){
     if (+this.amount<=180){
-      this.doneEvent.emit(+this.amount);
+      this.doneEvent.emit(this.amount);
       this.amount = "";
     }
     else{

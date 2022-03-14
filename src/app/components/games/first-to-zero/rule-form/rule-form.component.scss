@@ -1,0 +1,30 @@
+mat-button-toggle-group {
+    width: 100%;
+  }
+  
+  mat-button-toggle {
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+}
+.text-input{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    min-width: 150px;
+    width: 100%;
+}
+.rule-section{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.section-header{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: large;
+    font-weight: 450;
+}
+::ng-deep .mat-form-field-wrapper{
+    margin-bottom: -1.25em;
+ }

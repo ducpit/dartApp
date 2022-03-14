@@ -1,10 +1,10 @@
 export interface Game {
     activePlayer: number,
-    gameState: number,
     inCondition: number,
     outCondition: number,
     finish: string,
-    number: number,
+    amount: number,
     type: string,
     difference: number,
+    rounds: Array<{player: number, throw: number}>
 }

@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 // Material Modules
@@ -26,6 +28,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FirstToZeroComponent } from './components/games/first-to-zero/first-to-zero.component';
 import { KeyboardComponent } from './components/keyboard/keyboard.component';
+import { RuleFormComponent } from './components/games/first-to-zero/rule-form/rule-form.component';
 
 
 @NgModule({
@@ -34,6 +37,7 @@ import { KeyboardComponent } from './components/keyboard/keyboard.component';
     FirstToZeroComponent,
     DashboardComponent,
     KeyboardComponent,
+    RuleFormComponent,
   ],
   imports: [
     MatToolbarModule,
@@ -48,6 +52,7 @@ import { KeyboardComponent } from './components/keyboard/keyboard.component';
     MatDividerModule,
     MatCardModule,
     MatGridListModule,
+    FlexLayoutModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

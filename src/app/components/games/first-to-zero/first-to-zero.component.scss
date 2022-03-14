@@ -1,36 +1,9 @@
-mat-button-toggle-group {
-    width: 100%;
-  }
-  
- mat-button-toggle {
-    flex: 1 1 100%;
-    box-sizing: border-box;
-    align-items: center;
-    flex-direction: row;
-    display: flex;
-}
-.text-input{
-    margin-top: 1%;
-    min-width: 150px;
-    width: 100%;
-}
-.rule-section{
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
-.playerCard{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 0;
-    width: 100%;
-}
 .active{
     background: lightgreen;
 }
 .playerBoard{
-    width: 100%;
+    width: 100%!important;
 }
-.keyboard{
-    position: fixed;
-    z-index: 2000;
+.container{
+    width: 100%;
 }

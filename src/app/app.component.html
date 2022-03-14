@@ -1,7 +1,4 @@
-<!-- --------------------------------------------------------------------------    -->
-<!-- Main Component => Main Routing Features -->
-<!-- --------------------------------------------------------------------------    -->
-<!-- Header Toolbar-->
+<!-- Toolbar: Open Sidenav/ Like / Share -->
 <mat-toolbar color="primary">
   <button (click)="drawer.toggle()" mat-icon-button class="toolbar-icon" aria-label="menu">
     <mat-icon>menu</mat-icon>
@@ -15,22 +12,18 @@
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>
-<!-- --------------------------------------------------------------------------    -->
 <!-- Sidebar for routing in app-->
 <mat-drawer-container class="sidenav-container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side">
     <p class="sidenav-text">General</p>
-    <button mat-raised-button routerLink="/">Dashboard</button>
+    <button mat-button routerLink="/">Dashboard</button>
     <p class="sidenav-text">Games</p>
-    <button mat-raised-button routerLink="/firstToZero">
+    <button mat-button routerLink="/firstToZero">
       First To Zero
     </button>
   </mat-drawer>
-
   <div class="sidenav-content">
+    <!-- Content -->
     <router-outlet></router-outlet>
   </div>
-
 </mat-drawer-container>
-
-<!-- --------------------------------------------------------------------------    -->
