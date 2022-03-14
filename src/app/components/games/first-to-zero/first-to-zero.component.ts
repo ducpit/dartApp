@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from 'src/app/helpers/player';
 import { Game } from 'src/app/helpers/game';
-import { FormGroup, FormArray } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-first-to-zero',
@@ -13,15 +15,12 @@ export class FirstToZeroComponent implements OnInit {
   players: Player[] = [];
   game: Game = <Game>{};
 
+
   public settingsFinished = false;
 
   constructor() { }
 
   ngOnInit(): void { }
-
-  createPlayerObjects(player: any) {
-
-  }
 
   setPlayerAktiv(i: number) {
     if (typeof this.players != "undefined") {
@@ -38,6 +37,7 @@ export class FirstToZeroComponent implements OnInit {
     console.log("Start Game Parent")
     console.log()
     this.settingsFinished = true;
+    
     // Create Player Objects
     for (let i = 0; i < Object.values(FormData)[8].length; i++) {
       console.log("Player init "+ String(i))

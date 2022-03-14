@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { OverlayModule } from "@angular/cdk/overlay";
+
 
 
 
@@ -53,6 +55,7 @@ import { RuleFormComponent } from './components/games/first-to-zero/rule-form/ru
     MatCardModule,
     MatGridListModule,
     FlexLayoutModule,
+    OverlayModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

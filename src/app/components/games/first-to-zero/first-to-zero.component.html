@@ -7,7 +7,7 @@
         <mat-card-subtitle>{{player.name}}</mat-card-subtitle>
         <mat-card-content>Last Throw: {{player.throws[player.throws.length-1].throw}}</mat-card-content>
     </mat-card>
-    <div *ngIf="settingsFinished" class="playerBoard">
+    <div *ngIf="settingsFinished" class="keyBoard">
         <app-keyboard (doneEvent)="roundFinished($event)"></app-keyboard>
     </div>
 </div>
