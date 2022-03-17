@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+
 @Component({
   selector: 'app-keyboard',
   templateUrl: './keyboard.component.html',
@@ -14,6 +15,7 @@ export class KeyboardComponent implements OnInit {
   @Output() doneEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
+    console.log("Init Keyboard")
   }
 
   buttonClicked(value: string){
@@ -25,6 +27,7 @@ export class KeyboardComponent implements OnInit {
     this.amount = this.amount.slice(0, -1);
     
   }
+  
   done(){
     if (+this.amount<=180){
       this.doneEvent.emit(this.amount);

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Player } from 'src/app/helpers/player';
-import { Game } from 'src/app/helpers/game';
 import { FormGroup } from '@angular/forms';
+import { Game } from 'src/app/helpers/models/game';
+import { Player } from 'src/app/helpers/models/player';
 
 
 
